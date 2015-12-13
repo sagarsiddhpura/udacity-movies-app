@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item android:id="@+id/action_set_sort_by" android:title="@string/action_sortby"
+        android:orderInCategory="100" app:showAsAction="always" android:icon="@drawable/ic_sort_by" />
+</menu>

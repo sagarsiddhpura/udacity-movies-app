@@ -1,0 +1,2 @@
+Dropdown instead of menu in main activity
+Create settings activity
