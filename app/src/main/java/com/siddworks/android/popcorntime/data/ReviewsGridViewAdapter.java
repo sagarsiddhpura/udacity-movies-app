@@ -5,39 +5,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.siddworks.android.popcorntime.R;
-import com.siddworks.android.popcorntime.model.Movie;
-import com.squareup.picasso.Picasso;
+import com.siddworks.android.popcorntime.model.ReviewsApiResult;
+import com.siddworks.android.popcorntime.util.Log;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by SIDD on 12-Dec-15.
  */
-public class MovieGridViewAdapter extends BaseAdapter {
+public class ReviewsGridViewAdapter extends BaseAdapter {
 
     private final Activity mContext;
-    private final List<Movie> mMovies;
+    private final ArrayList<ReviewsApiResult> mTrailers;
     private boolean isLoggingEnabled = true;
     private static final String TAG = "MovieGridViewAdapter";
 
-    public MovieGridViewAdapter(Activity context, List<Movie> movies) {
+    public ReviewsGridViewAdapter(Activity context, ArrayList<ReviewsApiResult> movies) {
         mContext = context;
-        mMovies = movies;
+        mTrailers = movies;
     }
 
     @Override
     public int getCount() {
-        return mMovies.size();
+        return mTrailers.size();
     }
 
     @Override
-    public Movie getItem(int position) {
-        if (position >= 0 && position < mMovies.size()) {
-            return mMovies.get(position);
+    public ReviewsApiResult getItem(int position) {
+        if (position >= 0 && position < mTrailers.size()) {
+            return mTrailers.get(position);
         }
         return null;
     }
@@ -51,8 +51,8 @@ public class MovieGridViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 //        Log.d(isLoggingEnabled, TAG, " position:" + position);
 
-        Movie movie = getItem(position);
-        if (movie == null) {
+        ReviewsApiResult trailer = getItem(position);
+        if (trailer == null) {
             return null;
         }
 
@@ -60,39 +60,37 @@ public class MovieGridViewAdapter extends BaseAdapter {
         ViewHolder holder = null;
         if (convertView == null) {
             row = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.row_item_movie, parent, false);
+                    .inflate(R.layout.row_item_review, parent, false);
 
             holder = new ViewHolder();
-            holder.mPosterView = (ImageView)row.findViewById(R.id.poster);
+            holder.mCaption = (TextView) row.findViewById(R.id.caption);
             row.setTag(holder);
         } else {
             holder = (ViewHolder)row.getTag();
         }
 
-        Picasso.with(mContext)
-                .load(mMovies.get(position)
-                        .getFullPosterPath())
-                .into(holder.mPosterView );
+        ReviewsApiResult review = mTrailers.get(position);
+        Log.d(isLoggingEnabled, TAG, " mTrailers.get(position).getSize():" + review);
+
+        holder.mCaption.setText(review.getReview());
 
         return row;
     }
 
-    public void addAll(Collection<Movie> xs) {
-        mMovies.addAll(xs);
+    public void addAll(Collection<ReviewsApiResult> trailers) {
+        mTrailers.addAll(trailers);
         notifyDataSetChanged();
     }
 
     public void clearData() {
-        mMovies.clear();
+        mTrailers.clear();
     }
 
-    public List<Movie> getItems() {
-        return mMovies;
+    public ArrayList<ReviewsApiResult> getItems() {
+        return mTrailers;
     }
 
     public class ViewHolder {
-        public View mView;
-        public ImageView mPosterView;
-        public Movie mItem;
+        public TextView mCaption;
     }
 }

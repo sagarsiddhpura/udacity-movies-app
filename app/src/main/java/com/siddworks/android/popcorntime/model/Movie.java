@@ -3,6 +3,7 @@ package com.siddworks.android.popcorntime.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class Movie extends MediaBasic implements Serializable {
 
     @JsonProperty("_id")
     private String mediaId;
+    private ArrayList<VideosApiResult> trailers;
 
     @Override
     public String toString() {
@@ -102,14 +104,6 @@ public class Movie extends MediaBasic implements Serializable {
         this.title = title;
     }
 
-    public boolean isVideo() {
-        return video;
-    }
-
-    public void setVideo(Boolean video) {
-        this.video = video;
-    }
-
     public List<Integer> getGenreIds() {
         return genreIds;
     }
@@ -140,5 +134,13 @@ public class Movie extends MediaBasic implements Serializable {
 
     public void setRevenue(long revenue) {
         this.revenue = revenue;
+    }
+
+    public ArrayList<VideosApiResult> getTrailers() {
+        return trailers;
+    }
+
+    public void setTrailers(ArrayList<VideosApiResult> trailers) {
+        this.trailers = trailers;
     }
 }

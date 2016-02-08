@@ -11,4 +11,12 @@
     <string name="original_language">Original language</string>
     <string name="revenue">Revenue</string>
     <string name="details">Details</string>
+    <string name="trailers">Trailers</string>
+    <string name="no_trailers">No Trailers Available</string>
+    <string name="loading_trailers">Loading Trailers...</string>
+    <string name="reviews">Reviews</string>
+    <string name="no_reviews">No Reviews</string>
+    <string name="loading_reviews">Loading Reviews...</string>
+    <string name="action_sort_by_favourites">Sort by Favourites</string>
+    <string name="action_share">Share</string>
 </resources>

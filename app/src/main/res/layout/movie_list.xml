@@ -31,7 +31,7 @@
         app:layoutManager="LinearLayoutManager"
         android:columnWidth="150dp"
         tools:context=".ui.MovieListActivity"
-        tools:listitem="@layout/movie_list_content"
+        tools:listitem="@layout/row_item_movie"
         android:layout_margin="2dp"
         android:visibility="gone"/>
 

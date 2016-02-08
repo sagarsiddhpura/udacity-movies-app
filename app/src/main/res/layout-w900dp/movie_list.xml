@@ -9,7 +9,8 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".ui.MovieListActivity">
+    tools:context=".ui.MovieListActivity"
+    android:weightSum="4">
 
     <!--
     This layout is a two-pane layout for the Movies
@@ -23,6 +24,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Nothing to show!"
+            android:gravity="center_vertical|center_horizontal"
+            android:visibility="gone"/>
 
         <RelativeLayout
             android:id="@+id/loadingView"
@@ -48,7 +57,7 @@
             app:layoutManager="LinearLayoutManager"
             android:columnWidth="150dp"
             tools:context=".ui.MovieListActivity"
-            tools:listitem="@layout/movie_list_content"
+            tools:listitem="@layout/row_item_movie"
             android:layout_margin="2dp"
             android:visibility="gone"/>
 

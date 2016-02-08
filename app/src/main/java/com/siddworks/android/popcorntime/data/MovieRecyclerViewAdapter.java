@@ -44,7 +44,7 @@ public class MovieRecyclerViewAdapter
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.movie_list_content, parent, false);
+                .inflate(R.layout.row_item_movie, parent, false);
         return new ViewHolder(view);
     }
 

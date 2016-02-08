@@ -6,4 +6,5 @@
     <color name="body_text_1">#de000000</color>
     <color name="body_text_2">#8a000000</color>
     <color name="gray_background">#e5e5e5</color>
+    <color name="transparent">#00000000</color>
 </resources>

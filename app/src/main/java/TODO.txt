@@ -1,2 +1,5 @@
 Dropdown instead of menu in main activity
 Create settings activity
+Change back icon on detail activity to white
+Crashes on tablet
+crashes  on rotation

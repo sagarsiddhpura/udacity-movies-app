@@ -50,6 +50,10 @@ public class MediaBasic  extends AbstractJsonMapping implements Serializable, Id
         this.mediaType = mediaType;
     }
 
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
     public String getFullBackdropPath() {
         return Constants.BACKDROP_API_URL_ROOT + backdropPath;
     }

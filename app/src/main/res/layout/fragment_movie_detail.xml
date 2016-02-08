@@ -75,7 +75,7 @@
 
                     <LinearLayout
                         android:id="@+id/rating_container"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/release_date"
                         android:layout_marginLeft="@dimen/margin_large"
@@ -92,8 +92,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                            android:textColor="?android:attr/textColorPrimary"
-                            tools:text="7.2" />
+                            android:textColor="?android:attr/textColorPrimary" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -102,6 +101,24 @@
                             android:text="@string/rating_denominator"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textColor="?android:attr/textColorSecondary" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/favButton"
+                                android:background="@color/transparent"
+                                android:src="@drawable/ic_favorite_border"
+                                android:layout_marginLeft="@dimen/margin_large"
+                                android:layout_marginRight="@dimen/margin_large"
+                                android:layout_gravity="right"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -135,7 +152,7 @@
                             android:focusable="true"
                             android:layout_height="wrap_content"
                             android:text="@string/details"
-                            style="@style/DetailSectionHeader"
+                            style="@style/SectionHeader"
                             android:layout_marginBottom="@dimen/element_spacing_normal" />
 
                         <!--Popularity-->
@@ -312,6 +329,130 @@
 
                     </LinearLayout>
 
+                    <LinearLayout android:id="@+id/trailers_block"
+                        android:layout_below="@id/details_block"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:layout_marginLeft="@dimen/margin_large"
+                        android:layout_marginRight="@dimen/margin_large"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/spacing_12dp">
+
+                        <TextView android:layout_width="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:layout_height="wrap_content"
+                            android:text="@string/trailers"
+                            style="@style/SectionHeader"
+                            android:layout_marginBottom="@dimen/element_spacing_normal" />
+
+                        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:animateLayoutChanges="true">
+
+                            <com.siddworks.android.popcorntime.ui.widgets.GridViewScrollable
+                                android:id="@+id/trailers_gridview"
+                                android:layout_width="match_parent"
+                                android:layout_height="120dp"
+                                android:columnWidth="300dp"
+                                android:horizontalSpacing="0dp"
+                                android:numColumns="auto_fit"
+                                android:stretchMode="columnWidth"
+                                android:verticalSpacing="0dp"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/trailers_status_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no_trailers"
+                                android:layout_marginBottom="@dimen/element_spacing_normal"
+                                android:visibility="gone"/>
+
+                            <ProgressBar
+                                android:id="@+id/trailers_progress_bar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/loading_trailers_TextView"
+                                android:layout_width="match_parent"
+                                android:gravity="center_horizontal"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/trailers_progress_bar"
+                                android:text="@string/loading_trailers"
+                                android:layout_marginBottom="@dimen/element_spacing_normal" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/reviews_block"
+                        android:layout_below="@id/trailers_block"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:layout_marginLeft="@dimen/margin_large"
+                        android:layout_marginRight="@dimen/margin_large"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/spacing_12dp">
+
+                        <TextView android:layout_width="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reviews"
+                            style="@style/SectionHeader"
+                            android:layout_marginBottom="@dimen/element_spacing_normal" />
+
+                        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:animateLayoutChanges="true">
+
+                            <com.siddworks.android.popcorntime.ui.widgets.GridViewScrollable
+                                android:id="@+id/reviews_gridview"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:columnWidth="300dp"
+                                android:horizontalSpacing="0dp"
+                                android:numColumns="auto_fit"
+                                android:stretchMode="columnWidth"
+                                android:verticalSpacing="0dp"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/reviews_status_TextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no_reviews"
+                                android:layout_marginBottom="@dimen/element_spacing_normal"
+                                android:visibility="gone"/>
+
+                            <ProgressBar
+                                android:id="@+id/reviews_progress_bar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/loading_reviews_TextView"
+                                android:layout_width="match_parent"
+                                android:gravity="center_horizontal"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/reviews_progress_bar"
+                                android:text="@string/loading_reviews"
+                                android:layout_marginBottom="@dimen/element_spacing_normal" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -322,7 +463,7 @@
                 android:layout_gravity="top|left">
 
                 <ImageView
-                    android:id="@+id/poster_image2"
+                    android:id="@+id/poster_image"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
                     android:layout_marginLeft="@dimen/margin_large"

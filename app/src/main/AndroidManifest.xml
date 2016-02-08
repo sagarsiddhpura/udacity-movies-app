@@ -30,6 +30,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MovieListActivity" />
         </activity>
+        <provider
+            android:authorities="com.siddworks.popcorntime"
+            android:name="com.siddworks.android.popcorntime.data.MovieProvider"/>
     </application>
 
 </manifest>
